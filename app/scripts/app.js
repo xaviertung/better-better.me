@@ -17,7 +17,9 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+	'directives',
+	'contact'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -30,6 +32,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+	  .when('/chatroom', {
+        templateUrl: 'views/chatroom.html',
+        controller: 'ChatRoomCtrl',
+        controllerAs: 'chatroom'
       })
       .otherwise({
         redirectTo: '/'

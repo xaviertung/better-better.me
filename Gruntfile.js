@@ -309,6 +309,16 @@ module.exports = function (grunt) {
     // concat: {
     //   dist: {}
     // },
+	concat: {
+      dist: {
+        src : ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        dest: '<%= yeoman.dist %>/js/better-better.me.min.js'
+      },
+      tmp: {
+        src : ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        dest: '.tmp/js/better-better.me.min.js'
+      }
+    },
 
     imagemin: {
       dist: {
@@ -450,6 +460,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+	  'concat:tmp',
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
